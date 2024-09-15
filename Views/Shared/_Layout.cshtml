@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Dashboard.styles.css" asp-append-version="true" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://kit.fontawesome.com/8b4519b807.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <aside class="sidebar">
+        <h1>GIS 科技儀表板</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#"><i class="fas fa-chart-bar"></i> 數據分析</a>
+                    <ul>
+                        <li><a href="#statistics">統計數據</a></li>
+                        <li><a href="#user-growth">用戶增長</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-map-marked-alt"></i> GIS 功能</a>
+                    <ul>
+                        <li><a href="#" onclick="showAllMarkers()">顯示所有標記</a></li>
+                        <li><a href="#" onclick="hideAllMarkers()">隱藏所有標記</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-cogs"></i> 系統管理</a>
+                    <ul>
+                        <li><a href="#system-status">系統狀態</a></li>
+                        <li><a href="#quick-actions">快速操作</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        @RenderBody()
+    </main>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
